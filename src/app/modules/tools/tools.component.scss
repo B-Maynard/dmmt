@@ -1,0 +1,19 @@
+.tools-wrapper {
+
+    .tools {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2%;
+
+        .tool-container {
+            cursor: pointer;
+            margin-top: 4%;
+            margin-right: 8%;
+
+            i {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
