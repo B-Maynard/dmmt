@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToolsComponent } from './tools.component';
+import { ToolsWindowComponent } from './tools-window.component';
 
-describe('ToolsComponent', () => {
-  let component: ToolsComponent;
-  let fixture: ComponentFixture<ToolsComponent>;
+describe('ToolsWindowComponent', () => {
+  let component: ToolsWindowComponent;
+  let fixture: ComponentFixture<ToolsWindowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolsComponent]
+      imports: [ToolsWindowComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ToolsComponent);
+    fixture = TestBed.createComponent(ToolsWindowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

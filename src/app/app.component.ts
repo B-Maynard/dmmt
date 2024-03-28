@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component,  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ToolsComponent } from './modules/tools/tools.component';
-import { HeaderComponent } from './shared/header/header.component';
+import { MenuBarComponent } from './shared/menu-bar/menu-bar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    ToolsComponent,
-    HeaderComponent
+    RouterOutlet,
+    CommonModule,
+    MenuBarComponent
+  ],
+  providers: [
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
