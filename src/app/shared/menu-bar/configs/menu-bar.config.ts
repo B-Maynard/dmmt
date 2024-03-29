@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { StateUtilityService } from '../../services/state-utility.service';
 import { DiceComponent } from '../../../modules/tools-window/tools/dice/dice.component';
+import { ToolsService } from '../../../modules/tools-window/tools.service';
+import { DiceTool } from '../../../modules/tools-window/tools/dice/dice.interface';
+import { DiceService } from '../../../modules/tools-window/tools/dice/dice.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,8 @@ import { DiceComponent } from '../../../modules/tools-window/tools/dice/dice.com
 export class MenuBarConfigService {
 
   constructor(
-    private stateUtility: StateUtilityService
+    private toolsService: ToolsService,
+    private diceService: DiceService
   ) { }
 
   public getMenuBarConfig() {
@@ -26,9 +30,44 @@ export class MenuBarConfigService {
                     {
                         label: "Roll dice",
                         icon: "bx bx-dice-5",
-                        command: (event: any) => {
-                            this.stateUtility.setAppState({tool: DiceComponent});
-                        }
+                        items: [
+                          {
+                            label: "d20",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(20));
+                            }
+                          },
+                          {
+                            label: "d12",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(12));
+                            }
+                          },
+                          {
+                            label: "d10",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(10));
+                            }
+                          },
+                          {
+                            label: "d8",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(8));
+                            }
+                          },
+                          {
+                            label: "d6",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(6));
+                            }
+                          },
+                          {
+                            label: "d4",
+                            command: (event: any) => {
+                              this.toolsService.changeSelectedTool(this.diceService.initDiceObj(4));
+                            }
+                          }
+                        ],
                     }
                 ]
             }

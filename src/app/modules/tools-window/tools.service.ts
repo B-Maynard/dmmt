@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
-import { DiceComponent } from './tools/dice/dice.component';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToolsService {
 
-  constructor() { }
+  public selectedTool: any | undefined;
 
-  public initToolsArray() {
-    return [
-      DiceComponent
-    ]
+  public selectedToolChange: Subject<any> = new Subject<any>();
+
+  constructor() { 
+    this.selectedToolChange.subscribe((toolObj) => {
+      this.selectedTool = toolObj;
+    });
   }
+
+
+  changeSelectedTool(toolObj: any) {
+    this.selectedToolChange.next(toolObj);
+  }
+
+
 }
