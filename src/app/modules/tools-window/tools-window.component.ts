@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { DiceComponent } from './tools/dice/dice.component';
 import { MenuBarComponent } from '../../shared/menu-bar/menu-bar.component';
 import { StateUtilityService } from '../../shared/services/state-utility.service';
+import { ToolsService } from './tools.service';
 
 @Component({
   selector: 'app-tools-window',
@@ -14,27 +14,25 @@ import { StateUtilityService } from '../../shared/services/state-utility.service
 })
 export class ToolsWindowComponent implements OnInit, OnChanges {
 
-  public currentToolFromState: any = null;
+  @ViewChild('toolsWindow', {read: ViewContainerRef}) toolsWindow: ViewContainerRef | undefined;
+
+  public tools: any[] = this.toolsService.initToolsArray();
   public appState: any;
 
 
   constructor(
     private viewRef: ViewContainerRef,
-    private stateUtility: StateUtilityService
-  ) {
-    this.appState = this.stateUtility.getAppState();
-  }
+    private stateUtility: StateUtilityService,
+    private toolsService: ToolsService
+  ) {}
 
 
   ngOnInit(): void {
-    let appState = this.stateUtility.getAppState();
-    this.currentToolFromState = appState?.tool;
+    this.appState = this.stateUtility.getAppState();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    // this.viewRef.clear();
-    // this.viewRef.createComponent(DiceComponent);
   }
 
 }
