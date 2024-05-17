@@ -70,7 +70,21 @@ export class MenuBarConfigService {
                         ],
                     }
                 ]
-            }
+            },
+            {
+              label: "Score Keeper",
+              icon: "bx bx-bar-chart-alt-2",
+              items: [
+                {
+                    label: "Cumulative",
+                    icon: "bx bx-pencil",
+                },
+                {
+                  label: "Team-Based",
+                  icon: "bx bx-group",
+                }
+            ]
+            },
         ]
     }
   }

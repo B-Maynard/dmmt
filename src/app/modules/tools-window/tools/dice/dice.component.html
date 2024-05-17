@@ -1,6 +1,8 @@
-<p-dialog header="d{{dType}}" [(visible)]="visible" [style]="{width: '25vw'}" >
-    <p class="dice-roll">
-        {{rollContent}}
-    </p>
-    <p-button (click)="roll()">Roll again</p-button>
+<p-dialog header="d{{dType}}" [(visible)]="visible">
+    <div class="dice-roll-container">
+        <p class="dice-roll">
+            {{rollContent}}
+        </p>
+        <p-button (click)="roll()">Roll again</p-button>
+    </div>
 </p-dialog>
